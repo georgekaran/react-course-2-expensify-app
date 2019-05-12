@@ -12,17 +12,3 @@ const config = {
 firebase.initializeApp(config)
 
 const database = firebase.database()
-
-// database.ref().set({
-//     name: 'George Karan',
-//     age: 26,
-//     isSingle: true,
-//     location: {
-//         city: 'Venancio Aires',
-//         country: 'Brazil'
-//     }
-// }).then(() => {
-//     console.log(`Data is saved`)
-// }).catch((e) => {
-//     console.log(`this failed`, e)
-// })
