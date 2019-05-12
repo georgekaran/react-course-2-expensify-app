@@ -1,0 +1,18 @@
+ul {
+    list-style: none;
+    display: inline-flex;
+}
+
+.container {
+    display: inline-flex;
+}
+
+nav {
+    display: flex !important;
+}
+
+li {
+    display: flex;
+    justify-content: space-between!important;
+}
+

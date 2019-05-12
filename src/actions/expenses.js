@@ -1,16 +1,22 @@
-import uuid from 'uuid'
+
 
 // ADD_EXPENSE
-export const addExpense = ({ description = '', note = '', amount = 0, createAt = 0 } = {}) => ({
+export const addExpense = ({ description = '', note = '', amount = 0, createat = 0 } = {}) => ({
     type: 'ADD_EXPENSE',
     expense: {
-        id: uuid(),
+        id,
         description,
         note,
         amount,
-        createAt
+        createat
     }
 })
+
+export const fetchExpenses = (expenses = []) => ({
+    type: 'FETCH_EXPENSES',
+    expenses
+})
+
 // REMOVE_EXPENSE
 export const removeExpense = ({ id = 1 } = {}) => ({
     type: 'REMOVE_EXPENSE', 
