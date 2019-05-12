@@ -5,14 +5,29 @@ ul {
 
 .container {
     display: inline-flex;
+    align-items: center;
+    margin: 0 10%;
 }
 
-nav {
+.nav-header {
     display: flex !important;
+    justify-content: space-between;
 }
 
 li {
     display: flex;
     justify-content: space-between!important;
+}
+
+.margin-right-10 {
+    margin: 0 10% 0 0;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-rigth {
+    float: right;
 }
 

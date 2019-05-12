@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const Header = () => (
     <header>
-        <nav>
+        <nav className='nav-header'>
             <div className='container'>
                 <h1>Expensify</h1>
                 <ul className='menu-top-right'>
@@ -13,8 +13,10 @@ const Header = () => (
                     <li><NavLink to='/help' activeClassName="is-active">Help</NavLink></li>
                 </ul>
             </div>
-            <div className='container'>
-                <button onClick={a => alert('abd')}>Login</button>
+            <div className='container float-rigth'>
+                <button className='btn-save' onClick={a => alert('abd')}>
+                    <span className='btnText'>Login</span>
+                </button>
             </div>
         </nav>
     </header>
