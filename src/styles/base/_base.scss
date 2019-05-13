@@ -21,6 +21,10 @@ button:disabled {
     font-weight: bold;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .btn-save {
     border-radius: 4px;
     border: none;
@@ -38,9 +42,10 @@ button:disabled {
     transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btnText {
+.btn-text {
     box-sizing: border-box;
     color: $btnText;
     font-weight: 500;
     letter-spacing: $r-letter-space;
+    vertical-align: -webkit-baseline-middle;
 }

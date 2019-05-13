@@ -14,9 +14,9 @@ const Header = () => (
                 </ul>
             </div>
             <div className='container float-rigth'>
-                <button className='btn-save' onClick={a => alert('abd')}>
-                    <span className='btnText'>Login</span>
-                </button>
+                <NavLink className='btn-save' to='/login' exact>
+                    <span className='btn-text'>Login</span>
+                </NavLink>
             </div>
         </nav>
     </header>
