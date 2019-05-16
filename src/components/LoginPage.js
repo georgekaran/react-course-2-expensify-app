@@ -14,6 +14,7 @@ export default class LoginPage extends React.Component {
     handleFormSubmit(event) {
         event.preventDefault()
         console.log('Disparou')
+        console.log(process.env.BACKEND_HOST)
     }
     
     render() {
