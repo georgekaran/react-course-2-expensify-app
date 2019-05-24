@@ -6,6 +6,8 @@ html {
 body {
     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: $m-size;
+    background: url('../images/background.jpg') no-repeat;
+    background-size: cover;
 }
 
 button {
@@ -19,6 +21,8 @@ button:disabled {
 
 .is-active {
     font-weight: bold;
+    width: calc(100% + 10px);
+    border-bottom: 1.5px solid springgreen;
 }
 
 a {

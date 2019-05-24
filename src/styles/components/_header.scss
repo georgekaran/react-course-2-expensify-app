@@ -3,6 +3,21 @@ ul {
     display: inline-flex;
 }
 
+.header-logo {
+    color: $btnText;
+}
+
+.span-header {
+    color: $btnText;
+    text-align: center;
+    display: block;
+    width: calc(100% + 10px);
+}
+
+.link-header {
+    width: calc(100% + 10px);
+}
+
 .container {
     display: inline-flex;
     align-items: center;

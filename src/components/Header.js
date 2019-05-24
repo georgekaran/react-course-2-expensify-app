@@ -1,32 +1,48 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const loginStyle = {
-    marginLeft: '0'
-}
+  marginLeft: "0"
+};
 
 const Header = () => (
-    <header>
-        <nav className='nav-header'>
-            <div className='container'>
-                <h1>Expensify</h1>
-                <ul className='menu-top-right'>
-                    <li className='margin-1rem'><NavLink to='/' activeClassName="is-active" exact>Home</NavLink></li>
-                    <li className='margin-1rem'><NavLink to='/dashboard' activeClassName="is-active" exact>Dashboard</NavLink></li>
-                    <li className='margin-1rem'><NavLink to='/create' activeClassName="is-active">Create</NavLink></li>
-                    <li className='margin-1rem'><NavLink to='/help' activeClassName="is-active">Help</NavLink></li>
-                </ul>
-            </div>
-            <div style={loginStyle} className='container float-rigth'>
-                <NavLink className='btn-save' to='/login' exact>
-                    <span className='btn-text'>Login</span>
-                </NavLink>
-                <NavLink className='btn-save' to='/register' exact>
-                    <span className='btn-text'>Registre-se</span>
-                </NavLink>
-            </div>
-        </nav>
-    </header>
-)
+  <header>
+    <nav className="nav-header">
+      <div className="container">
+        <h1 className="header-logo">Expensify</h1>
+      </div>
+      <div style={loginStyle} className="container float-rigth">
+        <ul className="menu-top-right">
+          <li className="margin-1rem">
+            <NavLink className='' to="/" activeClassName="is-active" exact>
+              <span className='span-header'>Home</span>
+            </NavLink>
+          </li>
+          <li className="margin-1rem">
+            <NavLink to="/dashboard" activeClassName="is-active" exact>
+              <span className='span-header'>Dashboard</span>
+            </NavLink>
+          </li>
+          <li className="margin-1rem">
+            <NavLink to="/create" activeClassName="is-active">
+              <span className='span-header'>Criação</span>
+            </NavLink>
+          </li>
+          <li className="margin-1rem">
+            <NavLink to="/help" activeClassName="is-active">
+              <span className='span-header'>Ajuda</span>
+            </NavLink>
+          </li>
+        </ul>
+        <NavLink className="btn-save" to="/login" exact>
+          <span className="btn-text">Login</span>
+        </NavLink>
+        <NavLink className="btn-save" to="/register" exact>
+          <span className="btn-text">Registre-se</span>
+        </NavLink>
+      </div>
+    </nav>
+  </header>
+);
 
-export default Header
+export default Header;
