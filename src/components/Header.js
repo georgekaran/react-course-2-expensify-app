@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import logo from '../../images/logo_imagem2.png'
 
 const loginStyle = {
   marginLeft: "0"
@@ -9,7 +10,7 @@ const Header = () => (
   <header>
     <nav className="nav-header">
       <div className="container">
-        <h1 className="header-logo">Expensify</h1>
+        <img className="image-logo" src={logo} />
       </div>
       <div style={loginStyle} className="container float-rigth">
         <ul className="menu-top-right">

@@ -9,6 +9,7 @@ class AuthService extends BasicService {
   }
 
   static login = async data => {
+    console.log(data)
     return await BasicService.post(`${prefixUrl}/authenticate`, data)
   }
 
@@ -21,6 +22,20 @@ class AuthService extends BasicService {
   static logout = async data => {
     await Service.get("/logout")
   }
+
+  static isAuthenticated = async () => {
+    return await BasicService.get(`${prefixUrl}/isAuthenticated`, {}) 
+  }
+}
+
+var getCookies = function(){
+  var pairs = document.cookie.split(";");
+  var cookies = {};
+  for (var i=0; i<pairs.length; i++){
+    var pair = pairs[i].split("=");
+    cookies[(pair[0]+'').trim()] = unescape(pair[1]);
+  }
+  return cookies;
 }
 
 export default AuthService

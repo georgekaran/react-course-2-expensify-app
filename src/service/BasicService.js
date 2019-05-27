@@ -11,6 +11,10 @@ class BasicService {
     return await Service.post(baseUrl+url, data)
   }
 
+  static get = async(url, data) => {
+    return await Service.get(baseUrl+url, data)
+  }
+
   static put = async(id, data) => {
     return await Service.put(`${this.url}/${id}`, data)
   }

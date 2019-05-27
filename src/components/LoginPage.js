@@ -29,8 +29,9 @@ class LoginPage extends React.Component {
 
   attemptLogin = async (values, actions) => {
     try {
-      const user = await AuthService.login(values);
-      if (user.response.status == 400) {
+      let user = await AuthService.login(values);
+      localStorage.setItem('expensify_session', user.token);
+      if (user.status >= 400) {
           console.log(this.props)
           console.log({ message: user.response.data.error, type: 'a', isRender: true })
           this.props.dispatch(setAlert({ message: user.response.data.error, type: 'a', isRender: true }))

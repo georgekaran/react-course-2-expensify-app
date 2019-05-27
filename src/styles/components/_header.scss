@@ -7,6 +7,12 @@ ul {
     color: $btnText;
 }
 
+.image-logo {
+    width: 200px;
+    height: 75px;
+    object-fit: contain;
+}
+
 .span-header {
     color: $btnText;
     text-align: center;
