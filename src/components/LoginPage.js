@@ -43,7 +43,7 @@ class LoginPage extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <Alert />
         <Formik
           validationSchema={LoginSchema}
@@ -52,13 +52,12 @@ class LoginPage extends React.Component {
           validate={LoginSchema}
         >
           <Form>
-            <div className="Login Form">
-              <BaseField
-                inputId="email"
-                inputTitle="Email"
-                inputType="text"
-                inputName="email"
-              />
+            <div className="login-wrap">
+              <span className="login-title">Login</span>
+              <div>
+                <span className="span-login">Email</span>
+                <Field className="input-login" id="input-email" title="Email" type="text" name="email" />
+              </div>
               <BaseField
                 inputId="password"
                 inputTitle="Senha"

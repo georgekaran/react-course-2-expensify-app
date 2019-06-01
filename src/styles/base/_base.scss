@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
+* {
+    font-family: 'Poppins', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
 html {
     font-size: 62.5%;
-    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: $m-size;
-    //background: url('../../images/background.jpg') no-repeat; 
+    background: url('../../images/bg-01.jpg') no-repeat; 
     background-size: cover;
 }
 
@@ -19,10 +25,36 @@ button:disabled {
     cursor: default;
 }
 
+input {
+    border: none;
+    outline: none;
+}
+
 .is-active {
     font-weight: bold;
     width: calc(100% + 10px);
     border-bottom: 1.5px solid springgreen;
+}
+
+#app {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.body-container {
+    width: 100%;
+    min-height: 93vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 a {

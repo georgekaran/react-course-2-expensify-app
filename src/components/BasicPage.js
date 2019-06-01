@@ -1,11 +1,10 @@
 import React from 'react'
-import AppRouter from '../routers/AppRouter'
-import Header from './Header'
+import AppRoutes from '../routers/AppRoutes'
 
 const BasicPage = () => {
     return (
-        <div>
-            <AppRouter />
+        <div className="body-container">
+            <AppRoutes />
         </div>
     )
 }

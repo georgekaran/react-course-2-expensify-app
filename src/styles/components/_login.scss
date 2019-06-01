@@ -1,61 +1,70 @@
-.inp {
-  position: relative;
-  margin: auto;
+.login-wrap {
+  width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.login-title {
+  display: block;
+  font-size: 39px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.span-login {
+  font-size: 1em;
+  color: #333333;
+  line-height: 1.5;
+  padding-left: 7px;
+}
+
+.input-login {
+  font-size: 1em;
+  color: #333333;
+  line-height: 1.2;
+  display: block;
   width: 100%;
-  max-width: 280px;
+  height: 55px;
+  background: transparent;
+  padding: 0 7px 0 43px;
 }
-.inp .label {
+
+.input-login::before {
+  content: "";
+  display: block;
   position: absolute;
-  top: 5px;
+  bottom: -2px;
   left: 0;
-  font-size: 18px;
-  color: #9098a9;
-  font-weight: 500;
-  transform-origin: 0 0;
-  transition: all 0.2s ease;
-}
-.inp .border {
-  position: absolute;
-  bottom: -7px;
-  left: 0;
+  width: 0;
   height: 2px;
-  width: 100%;
-  background: #07f;
-  transform: scaleX(0);
-  transform-origin: 0 0;
-  transition: all 0.15s ease;
+  background: #7f7f7f;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
 }
-.inp input {
-  -webkit-appearance: none;
-  width: 100%;
-  border: 0;
-  font-family: inherit;
-  padding: 10px 0 0 0;
-  height: 30px;
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid #c8ccd4;
-  background: none;
-  border-radius: 0;
-  color: #223254;
-  transition: all 0.15s ease;
-  margin-bottom: 10px;
-}
-.inp input:hover {
-  background: rgba(34, 50, 84, 0.03);
-}
-.inp input:not(:placeholder-shown) + span {
-  color: #5a667f;
-  transform: translateY(-26px) scale(0.75);
-}
-.inp input:focus {
-  background: none;
-  outline: none;
-}
-.inp input:focus + span {
-  color: #07f;
-  transform: translateY(-26px) scale(0.75);
-}
-.inp input:focus + span + .border {
-  transform: scaleX(1);
+
+.input-login::after {
+  content: attr(data-symbol);
+  font-family: Material-Design-Iconic-Font;
+  color: #adadad;
+  font-size: 22px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: calc(100% - 20px);
+  bottom: 0;
+  left: 0;
+  padding-left: 13px;
+  padding-top: 3px;
 }

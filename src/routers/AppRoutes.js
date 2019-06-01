@@ -3,28 +3,21 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import ExpenseDashboardPage from "../components/ExpenseDashboardPage";
 import AddExpensePage from "../components/AddExpensePage";
 import EditExpensePage from "../components/EditExpensePage";
-import HelpPage from "../components/HelpPage";
-import NotFoundPage from "../components/NotFoundPage";
-import Header from "../components/Header";
 import WelcomePage from "../components/WelcomePage";
 import LoginPage from "../components/LoginPage";
+import HelpPage from "../components/HelpPage";
+import NotFoundPage from "../components/NotFoundPage";
 import RegisterPage from "../components/RegisterPage";
-import AuthService from "../service/AuthService";
+import { isAuthenticated } from "../util/userUtil";
+import Header from "../components/Header";
 
-const isAuthenticated = () => {
-  let isAuthenticated =
-    localStorage.getItem("expensify_session") != (undefined || null)
-      ? true
-      : false;
-  console.log(isAuthenticated);
-  return isAuthenticated;
-};
+let authenticated = isAuthenticated();
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      isAuthenticated() ? (
+      authenticated ? (
         <Component {...props} />
       ) : (
         <Redirect to={{ pathname: "/", state: { from: props.location } }} />
@@ -33,22 +26,22 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-const AppRouter = () => (
+const AppRoutes = () => (
   <BrowserRouter>
-    <div>
-      <Header />
+    <React.Fragment>
+      <Header isAuthenticated={authenticated} />
       <Switch>
-        <Route path="/" component={WelcomePage} exact />
         <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
         <PrivateRoute path="/create" component={AddExpensePage} />
         <PrivateRoute path="/edit/:id" component={EditExpensePage} />
+        <Route path="/" component={WelcomePage} exact />
         <Route path="/help" component={HelpPage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </React.Fragment>
   </BrowserRouter>
 );
 
-export default AppRouter;
+export default AppRoutes;
