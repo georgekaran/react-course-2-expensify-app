@@ -1,21 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as yup from "yup";
 import { Formik, Form, Field } from "formik";
 import ButtonPrimary from "./ButtonPrimary";
 import AuthService from "../service/AuthService";
 import BaseField from "./util/BaseField";
-import Alert from './util/Alert'
-import { setAlert } from '../actions/alert'
+import Alert from "./util/Alert";
+import { setAlert } from "../actions/alert";
 
 const LoginSchema = yup.object().shape({
   email: yup
     .string()
-    .email('Email não é válido!')
+    .email("Email não é válido!")
     .required("Email é obrigatório!")
     .default(""),
   password: yup
     .string()
+    .min(6, "Senha curta!")
+    .max(50, "Senha muito longa!")
     .required("Senha é obrigatório!")
     .default("")
 });
@@ -30,11 +33,21 @@ class LoginPage extends React.Component {
   attemptLogin = async (values, actions) => {
     try {
       let user = await AuthService.login(values);
-      localStorage.setItem('expensify_session', user.token);
+      localStorage.setItem("expensify_session", user.token);
       if (user.status >= 400) {
-          console.log(this.props)
-          console.log({ message: user.response.data.error, type: 'a', isRender: true })
-          this.props.dispatch(setAlert({ message: user.response.data.error, type: 'a', isRender: true }))
+        console.log(this.props);
+        console.log({
+          message: user.response.data.error,
+          type: "a",
+          isRender: true
+        });
+        this.props.dispatch(
+          setAlert({
+            message: user.response.data.error,
+            type: "a",
+            isRender: true
+          })
+        );
       }
     } catch (e) {
       console.error("error trying to login", e.response.data);
@@ -49,24 +62,54 @@ class LoginPage extends React.Component {
           validationSchema={LoginSchema}
           initialValues={initProfile}
           onSubmit={this.attemptLogin}
-          validate={LoginSchema}
         >
-          <Form>
-            <div className="login-wrap">
-              <span className="login-title">Login</span>
-              <div>
-                <span className="span-login">Email</span>
-                <Field className="input-login" id="input-email" title="Email" type="text" name="email" />
+          {({ errors, touched }) => (
+            <Form>
+              <div className="login-wrap">
+                <span className="login-title">Login</span>
+                <div className="email-wrapper">
+                  <span className="span-login">Email</span>
+                  <Field
+                    className="input-login"
+                    id="input-email"
+                    title="Email"
+                    type="text"
+                    name="email"
+                    placeholder="Digite seu e-mail"
+                  />
+                  <span className="span-focus" />
+                  {errors.email && touched.email ? (
+                    <span className="form-validation-error"></span>
+                  ) : null}
+                </div>
+                <div className="email-wrapper">
+                  <span className="span-login">Senha</span>
+                  <Field
+                    className="input-password"
+                    id="input-password"
+                    title="Senha"
+                    type="password"
+                    name="password"
+                    placeholder="Digite sua senha"
+                  />
+                  <span className="span-focus" />
+                  {errors.password && touched.password ? (
+                    <span className="form-validation-error"></span>
+                  ) : null}
+                </div>
+                <div className="ta-right mb-30px">
+                  <Link className="forgot-password" to="/password-recovery">
+                    Esqueceu sua senha?
+                  </Link>
+                </div>
+                <div className="ta-center">
+                  <button className="btn-login" type="submit">
+                    Logar
+                  </button>
+                </div>
               </div>
-              <BaseField
-                inputId="password"
-                inputTitle="Senha"
-                inputType="password"
-                inputName="password"
-              />
-              <button type="submit">Logar</button>
-            </div>
-          </Form>
+            </Form>
+          )}
         </Formik>
       </div>
     );

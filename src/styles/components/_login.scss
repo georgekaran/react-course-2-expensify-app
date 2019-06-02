@@ -1,9 +1,9 @@
 .login-wrap {
-  width: 500px;
+  width: 450px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  padding: 20px;
+  padding: 40px;
 }
 
 .login-title {
@@ -12,7 +12,7 @@
   color: #333333;
   line-height: 1.2;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
   margin: 20px 0;
 }
 
@@ -23,18 +23,94 @@
   padding-left: 7px;
 }
 
-.input-login {
-  font-size: 1em;
+.input-login,
+.input-password {
+  font-family: Poppins !important;
+  font-size: 16px;
   color: #333333;
   line-height: 1.2;
   display: block;
-  width: 100%;
+  width: 89%;
   height: 55px;
   background: transparent;
   padding: 0 7px 0 43px;
+  font-weight: 500;
 }
 
-.input-login::before {
+.input-login-icon {
+  color: gray;
+  display: flex !important;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.input-login-icon:hover {
+  color: $purple;
+}
+
+.input-login:focus~.span-focus::after,
+.input-password:focus~.span-focus::after {
+  color: $purple;
+}
+
+.input-login:focus+.span-focus::before,
+.input-password:focus+.span-focus::before {
+  width: 100%;
+}
+
+.forgot-password {
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 500;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+
+  &:hover {
+    color: $purple;
+  }
+}
+
+.btn-login {
+  border: none;
+  background: #a64bf4;
+  color: white;
+  font-family: Poppins;
+  width: 200px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  -webkit-box-shadow: 10px 7px 20px -8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 7px 20px -8px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 7px 20px -8px rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    background: rgba(166, 75, 244, 0.7);
+  }
+}
+
+.email-wrapper {
+  border-bottom: 2px solid #d9d9d9;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.span-focus {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.span-focus::before {
   content: "";
   display: block;
   position: absolute;
@@ -49,9 +125,9 @@
   transition: all 0.4s;
 }
 
-.input-login::after {
-  content: attr(data-symbol);
-  font-family: Material-Design-Iconic-Font;
+.span-focus::after {
+  content: '\e7ff';
+  font-family: 'Material Icons' !important;
   color: #adadad;
   font-size: 22px;
   display: -webkit-box;
@@ -67,4 +143,21 @@
   left: 0;
   padding-left: 13px;
   padding-top: 3px;
+}
+
+.input-password+.span-focus::after {
+  content: '\e899' !important;
+}
+
+.form-validation-error {
+  position: absolute;
+  top: 40px;
+  right: 5px;
+  font-size: 25px;
+
+  &::before {
+    content: '\e001';
+    font-family: 'Material Icons' !important;
+    color: #c80000;
+  }
 }
