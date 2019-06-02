@@ -44,10 +44,6 @@
   align-content: center;
 }
 
-.input-login-icon:hover {
-  color: $purple;
-}
-
 .input-login:focus~.span-focus::after,
 .input-password:focus~.span-focus::after {
   color: $purple;
@@ -70,6 +66,16 @@
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
 
+  &:hover {
+    color: $purple;
+  }
+}
+
+.sign-up-link {
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
   &:hover {
     color: $purple;
   }
@@ -160,4 +166,19 @@
     font-family: 'Material Icons' !important;
     color: #c80000;
   }
+
+  &:hover &::after {
+    content: 'AAAAa';
+  }
+}
+
+.form-validation-message {
+  font-size: 13px;
+  position: absolute;
+  padding: 0px 30px 0 10px;
+  top: 47px;
+  right: 0px;
+  color: #c80000;
+  display: flex;
+  flex-wrap: wrap;
 }

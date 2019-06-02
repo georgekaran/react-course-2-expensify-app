@@ -79,7 +79,12 @@ class LoginPage extends React.Component {
                   />
                   <span className="span-focus" />
                   {errors.email && touched.email ? (
-                    <span className="form-validation-error"></span>
+                    <React.Fragment>
+                      <span className="form-validation-error" />
+                      <span className="form-validation-message">
+                        {errors.email}
+                      </span>
+                    </React.Fragment>
                   ) : null}
                 </div>
                 <div className="email-wrapper">
@@ -94,7 +99,12 @@ class LoginPage extends React.Component {
                   />
                   <span className="span-focus" />
                   {errors.password && touched.password ? (
-                    <span className="form-validation-error"></span>
+                    <React.Fragment>
+                      <span className="form-validation-error" />
+                      <span className="form-validation-message">
+                        {errors.password}
+                      </span>
+                    </React.Fragment>
                   ) : null}
                 </div>
                 <div className="ta-right mb-30px">
@@ -102,10 +112,18 @@ class LoginPage extends React.Component {
                     Esqueceu sua senha?
                   </Link>
                 </div>
-                <div className="ta-center">
+                <div className="ta-center mb-30px">
                   <button className="btn-login" type="submit">
                     Logar
                   </button>
+                </div>
+                <div className="ta-center">
+                  <span>
+                    Não possui conta ainda?{" "}
+                    <Link className="sign-up-link" to="/register">
+                      Registre-se aqui
+                    </Link>
+                  </span>
                 </div>
               </div>
             </Form>
