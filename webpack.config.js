@@ -19,7 +19,7 @@ module.exports = env => {
           exclude: /node_modules/
         },
         {
-          test: /\.jpe?g$|\.gif$|\.png|\.jpg$|\.woff(2)?$/i,
+          test: /\.jpe?g$|\.gif$|\.png|\.jpg$|\.woff(2)?$|\.svg$/i,
           use: {
             loader: "file-loader",
             options: {
@@ -33,19 +33,23 @@ module.exports = env => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: '/',
+                publicPath: "/",
                 hmr: !isProduction
               }
             },
             "css-loader",
             "sass-loader"
           ]
+        },
+        {
+          test: /\.svg$/,
+          loader: "svg-inline-loader"
         }
       ]
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: "style.css",
+        filename: "style.css"
       })
     ],
     devtool: isProduction ? "source-map" : "inline-source-map",

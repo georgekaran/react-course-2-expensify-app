@@ -33,8 +33,7 @@ class LoginPage extends React.Component {
   attemptLogin = async (values, actions) => {
     try {
       let user = await AuthService.login(values);
-      localStorage.setItem("expensify_session", user.token);
-      if (user.status >= 400) {
+      if (user.response.status >= 400) {
         console.log(this.props);
         console.log({
           message: user.response.data.error,
@@ -48,6 +47,9 @@ class LoginPage extends React.Component {
             isRender: true
           })
         );
+        console.log('passou')
+      } else {
+        localStorage.setItem("expensify_session", user.token);
       }
     } catch (e) {
       console.error("error trying to login", e.response.data);
@@ -57,7 +59,6 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div>
-        <Alert />
         <Formik
           validationSchema={LoginSchema}
           initialValues={initProfile}
@@ -67,6 +68,7 @@ class LoginPage extends React.Component {
             <Form>
               <div className="login-wrap">
                 <span className="login-title">Login</span>
+                <Alert />
                 <div className="email-wrapper">
                   <span className="span-login">Email</span>
                   <Field

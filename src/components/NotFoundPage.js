@@ -1,10 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+import ReactSVG from "react-svg";
 
-const NotFoundPage = () => (
-    <div>
+class NotFoundPage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  componentDidMount() {
+    
+  }
+
+  render() {
+    return (
+      <div>
         404! - <Link to="/">Go Home</Link>
-    </div>
-)
+        <ReactSVG src="/images/not-found.svg" />
+      </div>
+    );
+  }
+}
 
-export default NotFoundPage
+export default NotFoundPage;

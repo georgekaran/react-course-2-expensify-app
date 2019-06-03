@@ -12,9 +12,9 @@ export default () => {
             expenses: expensesReducer,
             filters: filtersReducer,
             users: usersReducer,
-            alert: alertReducer
-        })
+            alert: alertReducer,
+        }),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
-
     return store
 }

@@ -1,16 +1,22 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from "react";
+import { connect } from "react-redux";
 
-const Alert = (props) => (
-    <div>
-        <h4>{props.alert.message}</h4>
-    </div>
-)
+class Alert extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-const mapStateToProps = (state) => {
-    return {
-        alert: state.alert
-    }
+  render() {
+    return (
+      <div>
+        <h4>{this.props.alert.message}</h4>
+      </div>
+    );
+  }
 }
 
-export default connect(mapStateToProps)(Alert)
+const mapStateToProps = state => ({
+  alert: state.alert
+});
+
+export default connect(mapStateToProps)(Alert);

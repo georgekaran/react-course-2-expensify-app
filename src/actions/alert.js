@@ -1,6 +1,6 @@
 // ADD_EXPENSE
 export const setAlert = ({ message = '', type = '', isRender = false } = {}) => ({
-    type: 'SET_USER',
+    type: 'SET_ALERT',
     alert: {
         message,
         type,

@@ -8,7 +8,7 @@ let alertReducerDefaultState = {
 const alertReducer = (state = alertReducerDefaultState, action) => {
     switch (action.type) {
         case 'SET_ALERT':
-            return { ...action }
+            return { ...action.alert }
         default:
             return state
     }
