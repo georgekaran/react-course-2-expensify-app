@@ -1,0 +1,14 @@
+.not-found-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: fill;
+    z-index: -1;
+}
+
+.title-404 {
+    z-index: 1000;
+    font-size: 15em;
+    color: #FF4F12;
+    text-shadow: -4px -4px 0 white, 4px -4px 0 white, -4px 4px 0 white, 4px 4px 0 white;
+}

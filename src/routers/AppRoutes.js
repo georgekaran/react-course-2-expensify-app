@@ -26,7 +26,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-const AppRoutes = () => (
+const AppRoutes = (props) => (
   <BrowserRouter>
     <React.Fragment>
       <Header isAuthenticated={authenticated} />
