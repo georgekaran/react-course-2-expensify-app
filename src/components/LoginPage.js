@@ -33,13 +33,7 @@ class LoginPage extends React.Component {
   attemptLogin = async (values, actions) => {
     try {
       let user = await AuthService.login(values);
-      if (user.response.status >= 400) {
-        console.log(this.props);
-        console.log({
-          message: user.response.data.error,
-          type: "a",
-          isRender: true
-        });
+      if (user.response && user.response.status >= 400) {
         this.props.dispatch(
           setAlert({
             message: user.response.data.error,
@@ -47,12 +41,12 @@ class LoginPage extends React.Component {
             isRender: true
           })
         );
-        console.log('passou')
       } else {
         localStorage.setItem("expensify_session", user.token);
+        this.props.history.push('/dashboard');
       }
     } catch (e) {
-      console.error("error trying to login", e.response.data);
+      console.error("error trying to login", e);
     }
   };
 

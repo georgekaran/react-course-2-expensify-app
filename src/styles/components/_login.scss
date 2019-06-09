@@ -24,7 +24,8 @@
 }
 
 .input-login,
-.input-password {
+.input-password, 
+.input-name {
   font-family: Poppins !important;
   font-size: 16px;
   color: #333333;
@@ -45,12 +46,14 @@
 }
 
 .input-login:focus~.span-focus::after,
-.input-password:focus~.span-focus::after {
+.input-password:focus~.span-focus::after,
+.input-name:focus~.span-focus::after {
   color: $purple;
 }
 
 .input-login:focus+.span-focus::before,
-.input-password:focus+.span-focus::before {
+.input-password:focus+.span-focus::before,
+.input-name:focus+.span-focus::before {
   width: 100%;
 }
 

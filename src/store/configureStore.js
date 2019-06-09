@@ -7,6 +7,7 @@ import headerReducer from '../reducers/header'
 import thunk from "redux-thunk";
 
 export default () => {
+    let mid = [thunk];
     const store = createStore(
         combineReducers({
             expenses: expensesReducer,
@@ -15,7 +16,8 @@ export default () => {
             alert: alertReducer,
             header: headerReducer,
         }),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+        applyMiddleware(...mid)
     )
     return store
 }

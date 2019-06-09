@@ -26,20 +26,22 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-const AppRoutes = (props) => (
+const AppRoutes = props => (
   <BrowserRouter>
     <React.Fragment>
       <Header isAuthenticated={authenticated} />
-      <Switch>
-        <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
-        <PrivateRoute path="/create" component={AddExpensePage} />
-        <PrivateRoute path="/edit/:id" component={EditExpensePage} />
-        <Route path="/" component={WelcomePage} exact />
-        <Route path="/help" component={HelpPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register" component={RegisterPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <div className="mt-75px">
+        <Switch>
+          <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
+          <PrivateRoute path="/create" component={AddExpensePage} />
+          <PrivateRoute path="/edit/:id" component={EditExpensePage} />
+          <Route path="/" component={WelcomePage} exact />
+          <Route path="/help" component={HelpPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </div>
     </React.Fragment>
   </BrowserRouter>
 );

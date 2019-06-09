@@ -13,7 +13,7 @@ const Header = props => {
       <header className="menu-header">
         <nav className="nav-header">
           <div className="container">
-            <img className="image-logo" src={logo} />
+            <img className="image-logo" src="https://d2k5nsl2zxldvw.cloudfront.net/images/icons/sign-in/expensify-logo--reverse.svg" alt="Expensify" />
           </div>
           <div style={loginStyle} className="container float-rigth">
             {props.isAuthenticated && (
