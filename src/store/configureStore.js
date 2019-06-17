@@ -12,7 +12,7 @@ export default () => {
         combineReducers({
             expenses: expensesReducer,
             filters: filtersReducer,
-            users: usersReducer,
+            user: usersReducer,
             alert: alertReducer,
             header: headerReducer,
         }),

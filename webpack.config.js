@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = env => {
@@ -55,7 +56,12 @@ module.exports = env => {
     devtool: isProduction ? "source-map" : "inline-source-map",
     devServer: {
       contentBase: path.join(__dirname, "public"),
-      historyApiFallback: true
+      historyApiFallback: true,
+      https: {
+        key: fs.readFileSync('server.key'),
+        cert: fs.readFileSync('server.crt'),
+        ca: fs.readFileSync('rootCA.pem'),
+      }
     }
   };
 };

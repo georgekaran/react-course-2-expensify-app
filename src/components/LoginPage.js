@@ -8,6 +8,7 @@ import AuthService from "../service/AuthService";
 import BaseField from "./util/BaseField";
 import Alert from "./util/Alert";
 import { setAlert } from "../actions/alert";
+import { addUser } from "../actions/user"
 
 const LoginSchema = yup.object().shape({
   email: yup
@@ -42,7 +43,8 @@ class LoginPage extends React.Component {
           })
         );
       } else {
-        localStorage.setItem("expensify_session", user.token);
+        console.log(user)
+        this.props.dispatch(addUser(user.user))
         this.props.history.push('/dashboard');
       }
     } catch (e) {

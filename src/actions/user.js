@@ -1,21 +1,21 @@
 // ADD_EXPENSE
-export const addUser = ({ _id = '', name = '', email = '', 
-                        passwordResetToken = '', passwordResetExpires = undefined, createAt = Date.now() } = {}) => ({
+export const addUser = ({ _id = '', name = '', email = '', image = '',
+                        passwordResetToken = '', passwordResetExpires = undefined, createdAt = Date.now() } = {}) => ({
     type: 'ADD_USER',
     user: {
         _id,
         name,
         email,
-        password,
+        image,
         passwordResetToken,
         passwordResetExpires,
-        createAt
+        createdAt
     }
 })
 
-export const fetchUser = (users = []) => ({
+export const fetchUser = (user = {}) => ({
     type: 'FETCH_USER',
-    users
+    user
 })
 
 // REMOVE_EXPENSE

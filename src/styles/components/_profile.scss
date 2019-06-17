@@ -1,0 +1,43 @@
+.input-profile {
+    font-family: Poppins !important;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.2;
+    display: block;
+    width: 95%;
+    height: 55px;
+    background: transparent;
+    padding: 0 7px 0 5px;
+    font-weight: 500;
+}
+
+.focus-profile {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.focus-profile::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #7f7f7f;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.input-profile:focus+.focus-profile::before,
+.input-profile:focus+.focus-profile::before,
+.input-profile:focus+.focus-profile::before {
+  width: 100%;
+}

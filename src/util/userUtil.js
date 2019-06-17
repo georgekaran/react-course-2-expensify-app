@@ -1,11 +1,19 @@
 import React from 'react'
+import AuthService from '../service/AuthService';
 
-const isAuthenticated = () => {
-    let isAuthenticated =
-      localStorage.getItem("expensify_session") != (undefined || null || "undefined")
-        ? true
-        : false;
-    return isAuthenticated;
+const authenticated = async () => {
+    let authenticated = localStorage.getItem("expensify_session")
+    if (authenticated != undefined && authenticated != null) {
+      authenticated = await AuthService.isTokenValid({ token: localStorage.getItem("expensify_session") })
+      if (authenticated.isTokenValid) {
+        authenticated = true;
+      } else {
+        authenticated = false;
+      }
+    } else {
+      authenticated = false;
+    }
+    return authenticated;
 };
 
-export { isAuthenticated }
+export { authenticated }

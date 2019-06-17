@@ -26,6 +26,10 @@ class AuthService extends BasicService {
   static isAuthenticated = async () => {
     return await BasicService.get(`${prefixUrl}/isAuthenticated`, {}) 
   }
+
+  static isTokenValid = async (token) => {
+    return await BasicService.post(`${prefixUrl}/is_token_valid`, token)
+  }
 }
 
 var getCookies = function(){

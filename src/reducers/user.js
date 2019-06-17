@@ -1,12 +1,18 @@
 // Users Reducer
 let usersReducerDefaultState = {
-    users: []
+    _id: 0,
+    name: '',
+    email: '',
+    image: '',
+    passwordResetToken: '',
+    passwordResetExpires: '',
+    createdAt: Date.now()
 }
 
 const usersReducer = (state = usersReducerDefaultState, action) => {
     switch (action.type) {
         case 'ADD_USER':
-            return [...state.users, action.user]
+            return { ...action.user }
         case 'REMOVE_USER':
             return state.users.filter(user => user.id != action.id)
         case 'EDIT_USER':
@@ -21,7 +27,7 @@ const usersReducer = (state = usersReducerDefaultState, action) => {
                 }
             })
         case 'FETCH_USER':
-            return action.users
+            return action.user
         default:
             return state
     }

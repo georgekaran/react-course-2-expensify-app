@@ -1,1 +1,4 @@
 node_modules/
+rootCA.pem
+server.crt
+server.key
