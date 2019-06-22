@@ -1,5 +1,5 @@
 // ADD_EXPENSE
-export const addUser = ({ _id = '', name = '', email = '', image = '',
+export const addUser = ({ _id = '', name = '', email = '', image = '', token = '',
                         passwordResetToken = '', passwordResetExpires = undefined, createdAt = Date.now() } = {}) => ({
     type: 'ADD_USER',
     user: {
@@ -9,7 +9,8 @@ export const addUser = ({ _id = '', name = '', email = '', image = '',
         image,
         passwordResetToken,
         passwordResetExpires,
-        createdAt
+        createdAt,
+        token
     }
 })
 

@@ -35,7 +35,7 @@ const Header = props => {
               </li>
               <li className="margin-1rem ps-relative">
                 <div className="profile-item">
-                  <span className="span-header">Ajuda</span>
+                  {props.user.image && <img className="img-profile" src={`http://127.0.0.1:3000/images/${props.user.image}`}/>}
                 </div>
                 <div className="dropdown-menu">
                   <div className="dropdown-menu-item">
@@ -63,7 +63,8 @@ const Header = props => {
 };
 
 const mapStateToProps = state => ({
-  header: state.header
+  header: state.header,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Header);

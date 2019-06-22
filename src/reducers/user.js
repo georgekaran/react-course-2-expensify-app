@@ -6,7 +6,8 @@ let usersReducerDefaultState = {
     image: '',
     passwordResetToken: '',
     passwordResetExpires: '',
-    createdAt: Date.now()
+    createdAt: Date.now(),
+    token: ''
 }
 
 const usersReducer = (state = usersReducerDefaultState, action) => {
@@ -16,16 +17,7 @@ const usersReducer = (state = usersReducerDefaultState, action) => {
         case 'REMOVE_USER':
             return state.users.filter(user => user.id != action.id)
         case 'EDIT_USER':
-            return state.users.map((user) => {
-                if (user.id === action.id) {
-                    return {
-                        ...user, 
-                        ...action.updates
-                    }
-                } else {
-                    return user
-                }
-            })
+            return { ...state, ...action.updates }
         case 'FETCH_USER':
             return action.user
         default:

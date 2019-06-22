@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { axios } from '../service/Service'
 import * as yup from "yup";
 import { Formik, Form, Field } from "formik";
 import ButtonPrimary from "./ButtonPrimary";
@@ -44,7 +45,8 @@ class LoginPage extends React.Component {
         );
       } else {
         console.log(user)
-        this.props.dispatch(addUser(user.user))
+        axios.defaults.headers.common['authorization'] = `Bearer ${user.token}`;
+        this.props.dispatch(addUser({ ...user.user, token: user.token }))
         this.props.history.push('/dashboard');
       }
     } catch (e) {

@@ -35,7 +35,7 @@ class ExpenseListFilters extends React.Component {
     render() {
         return (
             <div>
-                <input type="text" value={this.props.filters.text} onChange={this.handleFiltersText} />
+                {/* <input type="text" value={this.props.filters.text} onChange={this.handleFiltersText} />
                 <select onChange={this.handleFiltersBy}>
                     <option value='date'>Date</option>
                     <option value='amount'>Amount</option>
@@ -49,7 +49,7 @@ class ExpenseListFilters extends React.Component {
                     showClearDates={true}
                     numberOfMonths={1}
                     isOutsideRange={() => false}
-                />
+                /> */}
             </div>
         )
     }
