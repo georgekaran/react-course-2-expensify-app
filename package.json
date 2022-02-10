@@ -37,7 +37,7 @@
     "material-design-icons": "^3.0.1",
     "mini-css-extract-plugin": "^0.7.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "normalize.css": "7.0.0",
     "pg": "^7.9.0",
     "pm2": "^3.5.0",
